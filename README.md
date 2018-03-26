@@ -6,4 +6,5 @@
 # how to install :
 # git clone https://github.com/mrcakil/admin_finder
 # cd admin_finder
+# chmod +x adfin.php cakil_wordlist.txt
 # php adfin.php
