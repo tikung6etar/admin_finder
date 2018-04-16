@@ -47,4 +47,7 @@ foreach($lists as $login){
 		print "\n[".date('H:m:s')."] Mencoba : $log => tidak di temukan";
 	}
 }
+   $handle = fopen("result.txt", "a+");
+		fwrite($handle, "$log\n");
+		fclose($handle);
 ?>
