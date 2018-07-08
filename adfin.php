@@ -32,7 +32,8 @@ $buka = fopen("$list","r");
 $ukuran = filesize("$list");
 $baca = fread($buka,$ukuran);
 $lists = explode("\r\n",$baca);
-
+ $handle = fopen("result.txt", "a+");
+		fwrite($handle, "$log\n");
 foreach($lists as $login){
 	$log = "$targetnya/$login";
 	$ch = curl_init("$log");
@@ -47,7 +48,5 @@ foreach($lists as $login){
 		print "\n[".date('H:m:s')."] Mencoba : $log => tidak di temukan";
 	}
 }
-   $handle = fopen("result.txt", "a+");
-		fwrite($handle, "$log\n");
-		fclose($handle);
+  
 ?>
