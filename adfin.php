@@ -32,8 +32,7 @@ $buka = fopen("$list","r");
 $ukuran = filesize("$list");
 $baca = fread($buka,$ukuran);
 $lists = explode("\r\n",$baca);
- $handle = fopen("result.txt", "a+");
-		fwrite($handle, "$log\n");
+
 foreach($lists as $login){
 	$log = "$targetnya/$login";
 	$ch = curl_init("$log");
@@ -43,6 +42,8 @@ foreach($lists as $login){
 	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	curl_close($ch);
 	if($httpcode == 200){
+		 $handle = fopen("result.txt", "a+");
+		fwrite($handle, "$log\n");
 		print "\n\n [".date('H:m:s')."] Mencoba : $log => Ditemukan\n";
 	}else{
 		print "\n[".date('H:m:s')."] Mencoba : $log => tidak di temukan";
